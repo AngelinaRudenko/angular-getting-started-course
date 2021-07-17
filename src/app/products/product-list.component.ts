@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IProduct } from "./IProduct";
+import { ProductService } from "./product.service";
 
 @Component({
     selector: "products",
@@ -15,18 +16,7 @@ export class ProductListComponent implements OnInit {
     private _filterText: string = "";
     filteredProducts: IProduct[] = [];
 
-    products: IProduct[] = [
-        {
-            productId : 1,
-            productName: "Garden Cart",
-            productCode: "GDN-0023",
-            releaseDate: "July 13, 2021",
-            description: "The best choise for your garden!",
-            price: 39.99,
-            starRating: 4.2,
-            imageUrl: "assets/images/garden_cart.png"
-        }
-    ];
+    products: IProduct[] = [];
 
     set filterText(value: string) {
         this._filterText = value;
@@ -37,8 +27,11 @@ export class ProductListComponent implements OnInit {
         return this._filterText;
     }
 
+    constructor(private _productService: ProductService) {}
+
     ngOnInit(): void {
-        console.log("init");
+        this.products = this._productService.getHardCodedProducts();
+        this.filteredProducts = this.products;
     }
 
     showHideImage(): void {
@@ -50,5 +43,9 @@ export class ProductListComponent implements OnInit {
         filterBy = filterBy.toLocaleLowerCase();
         return this.products.filter((product: IProduct) => 
             product.productName.toLocaleLowerCase().includes(filterBy));
+    }
+
+    onNotify(value: string): void {
+        console.log(value);
     }
 }
