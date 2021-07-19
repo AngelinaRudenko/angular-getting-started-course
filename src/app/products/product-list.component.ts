@@ -4,7 +4,6 @@ import { IProduct } from "./IProduct";
 import { ProductService } from "./product.service";
 
 @Component({
-    selector: "products",
     templateUrl: "./product-list.component.html",
     styleUrls: [ "./product-list.component.css" ]
 })
@@ -34,8 +33,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
         //this.products = this._productService.getHardCodedProducts();
         //this.filteredProducts = this.products;
         this.subscription = this._productService.getProducts().subscribe({
-            next: prosucts => {
-                this.products = prosucts;
+            next: products => {
+                this.products = products;
                 this.filteredProducts = this.products;
             },
             error: err => console.log(err)
