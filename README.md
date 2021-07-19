@@ -1,27 +1,57 @@
-# AngularGettingStarted
+## "Angular: Getting Started" By Deborah Kurata
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+### Introduction
+Angular is a JavaScript framework for building clint-side applications. Angular advantages:
+- Expressive HTML;
+- Powerful Data Binding;
+- Modular by Design;
+- Build-in Back-End Integration.
 
-## Development server
+In Angular an application is comprised of a set of components and services that provide functionality across those components.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> Component = template (UI view) + class (properties and methods) + metadata (additional information about the component for Angular).
 
-## Code scaffolding
+### First Things First
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Need to install: 
+- node.js (which also installs npm);
+- Angular CLI.
 
-## Build
+`ng help` Displays available commands
+`ng new <app name>` Create a new Angular application
+`ng serve -o` Builds the app, launches a server and opens in browser
+`ng add` Install package
+`ng test` Rund unit test
+`ng build` Compiles into an output directory (dir)
+`ng update` Updates the Angular verion for the app
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`ng generate` Generates code `–flat` with no directory:
+`ng g c <component name>` Component
+`ng g d <directive name>` Directive
+`ng g g <guard name>` Route guard
+`ng g i <interface name>` Interface
+`ng g m <module name>` Module
+`ng g p <pipe name>` Pipe
+`ng g s <service name>` Service
+`ng g cl` Class
+``
 
-## Running unit tests
+`dir` See the list of created files
+`code .` To open in vs code
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+In package.json you can see scripts and all installed packages.
+```
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint"
+  }
+```
+&uarr; `npm start` will execute `ng serve`.
+src- source code of application directory.
+The angular.json file is the CLI configuration file for our local installed Angular CLI.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
